@@ -164,10 +164,12 @@ github.com/json-iterator/go v1.1.10 h1:Kz6Cvnvv2wGdaG/V8yMvfkmNiXq9Ya2KUv4rouJJr
 github.com/json-iterator/go v1.1.10/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/uOdHXbAo4=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/jstemmer/go-junit-report v0.9.1/go.mod h1:Brl9GWCQeLvo8nXZwPNNblvFj/XSXhF0NWZEnDohbsk=
-github.com/kimulaco/daily-steam-core/app v0.0.0-20220811051545-3d8d37083682 h1:GqOYiO+uR+pjMxvV7/c6QUPu3RtXkggAMMXaB1+AFyI=
-github.com/kimulaco/daily-steam-core/app v0.0.0-20220811051545-3d8d37083682/go.mod h1:wWnRxZw3uthde+/Q864OZUnIXjOAX3XTtgxyMBK+qa4=
-github.com/kimulaco/daily-steam-core/date v0.0.0-20220811041411-dfdfa523d7b8 h1:QCjC1BlVXF9MQkJ+A3tgSPxtHuv0VAK8iazWPuKToog=
-github.com/kimulaco/daily-steam-core/date v0.0.0-20220811041411-dfdfa523d7b8/go.mod h1:M0T1pCVWNkx57Nr1Yfbpt9BDy1MsBXkrvJlG9unbKjY=
+github.com/kimulaco/daily-steam-core/apiutil v0.0.0-20220811131615-ac5218951ceb h1:N4eeiY0WQZm8ZVFYlWyVZ4uBHPvxOleGNxLm+SpIHbA=
+github.com/kimulaco/daily-steam-core/apiutil v0.0.0-20220811131615-ac5218951ceb/go.mod h1:tO+V1wUCkzG9J52F+qQNGDxjIU1ROa83I/90Sn9+5dY=
+github.com/kimulaco/daily-steam-core/app v0.0.0-20220811131615-ac5218951ceb h1:+iDCfNxoYhzuGie16KtQU57NAlFHlHOyNt5kBq4TJ5o=
+github.com/kimulaco/daily-steam-core/app v0.0.0-20220811131615-ac5218951ceb/go.mod h1:wWnRxZw3uthde+/Q864OZUnIXjOAX3XTtgxyMBK+qa4=
+github.com/kimulaco/daily-steam-core/date v0.0.0-20220811131615-ac5218951ceb h1:InFD5o/DYC1L6PdheZHeNmcQ/6nZJZs6KwhTFREpw3U=
+github.com/kimulaco/daily-steam-core/date v0.0.0-20220811131615-ac5218951ceb/go.mod h1:M0T1pCVWNkx57Nr1Yfbpt9BDy1MsBXkrvJlG9unbKjY=
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=

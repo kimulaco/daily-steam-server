@@ -3,6 +3,7 @@ package function
 import (
 	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 	"os"
 
@@ -19,27 +20,42 @@ func GetNewApp(w http.ResponseWriter, r *http.Request) {
 	err := json.NewDecoder(r.Body).Decode(&bodyParam)
 	if err != nil {
 		if err != io.EOF {
-			ReturnErrorJson(w, 500, err)
+			log.Println(err.Error())
+			b, _ := CreateError400(
+				"FAILED_DECODE_PARAMATER",
+				"failed decode paramater",
+			).ToBytes()
+			w.Write(b)
 			return
 		}
 	}
 
 	res, err := Get(os.Getenv("NEW_APP_SCRAPE_URL"))
 	if err != nil {
-		ReturnErrorJson(w, 500, err)
+		log.Println(err.Error())
+		b, _ := CreateError500("INTERNAL_SERVER_ERROR_001", "").ToBytes()
+		w.Write(b)
 		return
 	}
 	defer res.Body.Close()
 
-	apps, err := ParseNewApps(res, date.YesterdayDate())
+	releasedAt := date.YesterdayDate()
+	apps, err := ParseNewApps(res, releasedAt)
 	if err != nil {
-		ReturnErrorJson(w, 500, err)
+		log.Println(err.Error())
+		b, _ := CreateError500("INTERNAL_SERVER_ERROR_002", "").ToBytes()
+		w.Write(b)
 		return
 	}
 
-	body, err := json.Marshal(&SuccessJson{Apps: apps})
+	body, err := json.Marshal(&SuccessJson{
+		ReleasedAt: releasedAt.ToString(),
+		Apps:       apps,
+	})
 	if err != nil {
-		ReturnErrorJson(w, 500, err)
+		log.Println(err.Error())
+		b, _ := CreateError500("INTERNAL_SERVER_ERROR_003", "").ToBytes()
+		w.Write(b)
 		return
 	}
 

@@ -1,25 +1,30 @@
 package function
 
 import (
-	"encoding/json"
-	"net/http"
-
+	"github.com/kimulaco/daily-steam-core/apiutil"
 	"github.com/kimulaco/daily-steam-core/app"
 )
 
-type ErrorJson struct {
-	StatusCode int    `json:"statusCode"`
-	Message    string `json:"message"`
-}
-
 type SuccessJson struct {
-	Apps []app.App `json:"apps"`
+	ReleasedAt string    `json:"releasedAt"`
+	Apps       []app.App `json:"apps"`
 }
 
-func ReturnErrorJson(w http.ResponseWriter, code int, err error) {
-	body, _ := json.Marshal(&ErrorJson{
-		StatusCode: code,
-		Message:    err.Error(),
-	})
-	w.Write(body)
+func CreateError400(errorCode string, msg string) apiutil.Error {
+	return apiutil.Error{
+		StatusCode: 400,
+		ErrorCode:  errorCode,
+		Message:    msg,
+	}
+}
+
+func CreateError500(errorCode string, msg string) apiutil.Error {
+	if msg == "" {
+		msg = "internal server error"
+	}
+	return apiutil.Error{
+		StatusCode: 500,
+		ErrorCode:  errorCode,
+		Message:    msg,
+	}
 }
