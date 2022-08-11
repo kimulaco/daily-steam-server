@@ -1,4 +1,4 @@
-module github.com/kimulaco/daily-steam-api/GetNewApp
+module daily-steam.app/GetNewApp
 
 go 1.16
 

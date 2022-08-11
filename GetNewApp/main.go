@@ -1,4 +1,4 @@
-package main
+package function
 
 import (
 	"encoding/json"
@@ -24,7 +24,7 @@ func GetNewApp(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	res, err := Get(os.Getenv("SCRAPE_URL"))
+	res, err := Get(os.Getenv("NEW_APP_SCRAPE_URL"))
 	if err != nil {
 		ReturnErrorJson(w, 500, err)
 		return
